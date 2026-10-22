@@ -152,4 +152,5 @@ def delete_student(student_id):
 if __name__ == "__main__":
     # For local development only. Do not expose Flask's debug server publicly.
     get_connection().close()
-    app.run(debug=True)
+    import os
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", "5000")), debug=False)
